@@ -1,3 +1,7 @@
+"""
+큰 수의 법칙
+"""
+
 n, m, k = map(int, input().split())
 nums = list(map(int, input().split()))
 nums.sort(reverse=True)
