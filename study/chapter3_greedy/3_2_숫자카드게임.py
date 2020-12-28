@@ -11,6 +11,7 @@ for _ in range(n):
 
 small = 0
 
+# 각 행의 작은 수들중 큰 수 찾기
 for list in lists:
     tmp = 10001
     for num in list:
