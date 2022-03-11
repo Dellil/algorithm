@@ -41,4 +41,18 @@ const input = fs
     .map(v => v.replace('\r', ''))
     .map(v => v.split(' ')
     .map(v => parseInt(v)));
+
+// 가끔씩 fs모듈로 입력받아서 제출하면 채점할 때 바로 틀렸습니다 라고 나오는 문제가 있음
+// 이를 위해 readline으로 입력 받을 줄 알아야됨 어이가 없네 진짜.
+let input = [];
+
+rl.on('line', function (line) {
+  // 입력시 처리
+  input.push(line)
+})
+  .on('close', function () {
+  // 입력받은 데이터 활용해 알고리즘 코드 작성할 공간
+  console.log(input);
+  process.exit();
+});
 ```
