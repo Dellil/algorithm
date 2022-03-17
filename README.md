@@ -44,6 +44,13 @@ const input = fs
 
 // 가끔씩 fs모듈로 입력받아서 제출하면 채점할 때 바로 틀렸습니다 라고 나오는 문제가 있음
 // 이를 위해 readline으로 입력 받을 줄 알아야됨 어이가 없네 진짜.
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
 let input = [];
 
 rl.on('line', function (line) {
