@@ -9,6 +9,7 @@
 ```node --stack-size=65536 your-file.js```
 
 ``` javascript
+// 이제 fs를 통한 입력은 받지말자.. 바로 틀렸습니다 라고 뜨는 문제가 대다수다.
 // 문자 하나만 입력받을 경우
 const input = fs.readFileSync("/dev/stdin").toString()
 
@@ -47,19 +48,19 @@ const input = fs
 const readline = require('readline');
 
 const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+    input: process.stdin,
+    output: process.stdout
 });
 
 let input = [];
 
 rl.on('line', function (line) {
-  // 입력시 처리
-  input.push(line)
+    // 입력시 처리
+    input.push(line)
 })
-  .on('close', function () {
-  // 입력받은 데이터 활용해 알고리즘 코드 작성할 공간
-  console.log(input);
-  process.exit();
+.on('close', function () {
+    // 입력받은 데이터 활용해 알고리즘 코드 작성할 공간
+    console.log(input);
+    process.exit();
 });
 ```
