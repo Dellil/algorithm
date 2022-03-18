@@ -1,4 +1,4 @@
-# nodejs로 무슨 짓을 해도 안 풀려서 파이썬으로 풀었다.
+# nodejs로 무슨 짓을 해도 안 풀려서 파이썬으로 풀었다. 근데 풀 필요가 없었다.
 quests, maximumArcanes = map(int, input().split())
 gainingExperiences = list(map(int, input().split()))
 gainingExperiences.sort()

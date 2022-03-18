@@ -12,24 +12,28 @@ rl.on('line', function (line) {
     input.push(line)
  })
 .on('close', function () {
-    const [quests, maximumArcanes] = input[0].split(' ').map(v => parseInt(v));
-    const gainingExperiences = input[1].split(' ').map(v => parseInt(v));
-    gainingExperiences.sort((a, b) => a - b);
+    const [_, maximumArcanes] = input[0].split(' ').map(v => BigInt(v));
+    const gainingExperiences = input[1].split(' ').map(v => BigInt(v));
+    gainingExperiences.sort((a, b) => a > b ? 1 : -1);
 
-    let sum = 0;
-    let count = 0;
+    let sum = BigInt(0);
+
+    function abs(x) {
+        return x < 0n ? -x : x;
+    }
 
     gainingExperiences.forEach((exp, i) => {
-        if(i > maximumArcanes) {
+        const j = BigInt(i);
+        if(j > maximumArcanes) {
             sum += exp * maximumArcanes;
         }
-        else if(i - maximumArcanes <= 0) {
-            sum += exp * (maximumArcanes - Math.abs((i - maximumArcanes)));
+        else if(j - maximumArcanes <= 0) {
+            sum += exp * (maximumArcanes - abs((j - maximumArcanes)));
         }
     });
     
-    console.log(sum);
+    console.log(sum.toString()); 
 });
 /**
- * nodejs로는 무슨 짓을 해도 채점 시작하자마자 바로 틀렸다고 떠서 파이썬으로 푼 문제.
+ * nodejs로는 무슨 짓을 해도 채점 시작하자마자 바로 틀렸다고 떠서 파이썬으로 푼 문제. 이었으나 BigInt로 해결했다.
  */
