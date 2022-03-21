@@ -9,7 +9,6 @@
 ```node --stack-size=65536 your-file.js```
 
 ``` javascript
-// 이제 fs를 통한 입력은 받지말자.. 바로 틀렸습니다 라고 뜨는 문제가 대다수다.
 // 문자 하나만 입력받을 경우
 const input = fs.readFileSync("/dev/stdin").toString()
 
@@ -42,9 +41,8 @@ const input = fs
     .map(v => v.replace('\r', ''))
     .map(v => v.split(' ')
     .map(v => parseInt(v)));
-
-// 가끔씩 fs모듈로 입력받아서 제출하면 채점할 때 바로 틀렸습니다 라고 나오는 문제가 있음
-// 이를 위해 readline으로 입력 받을 줄 알아야됨 어이가 없네 진짜.
+  
+// readline을 활용해 입력 받기
 const readline = require('readline');
 
 const rl = readline.createInterface({
