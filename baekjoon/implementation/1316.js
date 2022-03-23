@@ -32,9 +32,10 @@ rl.on('line', function (line) {
                 insertLetterToTable(letterPointer);
                 letterPointer = word[i];
             }
-
-            if(i === word.length - 1) insertLetterToTable(letterPointer)
         }
+
+        // for문에서는 letterPointer 때문에 못 넣어준 마지막 글자 넣어주기
+        insertLetterToTable(word[word.length - 1]);
 
         const isPassedGroupCheck = Object.values(letterTable).every(b => b === true);
 
